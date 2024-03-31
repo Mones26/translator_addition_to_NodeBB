@@ -6,7 +6,7 @@ from google.cloud import aiplatform
 PROJECT_ID = "nodebb-416919" # TODO: Replace with your GCP Project ID
 
 # Set the project id
-! gcloud config set project {PROJECT_ID}
+# gcloud config set project {PROJECT_ID}
 
 auth.authenticate_user()
 
