@@ -1,8 +1,3 @@
-# from google.colab import auth
-# from google.cloud import aiplatform
-# from typing import Callable
-
-%pip install --quiet vertexai
 from vertexai.language_models import ChatModel, InputOutputTextPair
 
 chat_model = ChatModel.from_pretrained("chat-bison@001")
