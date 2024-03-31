@@ -1,10 +1,14 @@
+from vertexai.language_models import ChatModel, InputOutputTextPair
+
+chat_model = ChatModel.from_pretrained("chat-bison@001")
+
 def get_translation(post: str) -> str:
     parameters = {
         "temperature": 0.7,  # Temperature controls the degree of randomness in token selection.
         "max_output_tokens": 256,  # Token limit determines the maximum amount of text output.
     }
 
-    chat = chat_model.start_chat(context=context_translation)
+    chat = chat_model.start_chat(context=post)
     response = chat.send_message(post, **parameters)
     return response.text
 
@@ -13,7 +17,7 @@ def get_language(post: str) -> str:
         "temperature": 0.7,  # Temperature controls the degree of randomness in token selection.
         "max_output_tokens": 256,  # Token limit determines the maximum amount of text output.
     }
-    chat = chat_model.start_chat(context=context_classification)
+    chat = chat_model.start_chat(context=post)
     response = chat.send_message(post, **parameters)
     return response.text
 
