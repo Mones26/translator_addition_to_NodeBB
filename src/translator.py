@@ -1,24 +1,24 @@
-# from typing import Callable
+from typing import Callable
 
-# from google.colab import auth
-# from google.cloud import aiplatform
+from google.colab import auth
+from google.cloud import aiplatform
 
-# PROJECT_ID = "nodebb-416919" # TODO: Replace with your GCP Project ID
+PROJECT_ID = "nodebb-416919" # TODO: Replace with your GCP Project ID
 
-# Set the project id
-# gcloud config set project {PROJECT_ID}
+Set the project id
+gcloud config set project {PROJECT_ID}
 
-# auth.authenticate_user()
+auth.authenticate_user()
 
-# aiplatform.init(
-#     # your Google Cloud Project ID or number
-#     # environment default used is not set
-#     project=PROJECT_ID,
+aiplatform.init(
+    # your Google Cloud Project ID or number
+    # environment default used is not set
+    project=PROJECT_ID,
 
-#     # the Vertex AI region you will use
-#     # defaults to us-central1
-#     location='us-central1',
-# )
+    # the Vertex AI region you will use
+    # defaults to us-central1
+    location='us-central1',
+)
 from vertexai.language_models import ChatModel, InputOutputTextPair
 
 chat_model = ChatModel.from_pretrained("chat-bison@001")
