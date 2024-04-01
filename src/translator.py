@@ -1,8 +1,9 @@
+"""
 from typing import Callable
 
 from google.colab import auth
 from google.cloud import aiplatform
-"""
+
 PROJECT_ID = "nodebb-416919" # TODO: Replace with your GCP Project ID
 
 Set the project id
@@ -19,7 +20,7 @@ aiplatform.init(
     # defaults to us-central1
     location='us-central1',
 )
-"""
+
 from vertexai.language_models import ChatModel, InputOutputTextPair
 
 chat_model = ChatModel.from_pretrained("chat-bison@001")
@@ -56,7 +57,7 @@ def query_llm(post: str) -> tuple[bool, str]:
   # otherwise, translate the sentence to english, and return
   translated = get_translation(post)
   return (False, translated)
-
+"""
 def translate_content(content: str) -> tuple[bool, str]:
     # return query_llm(content)
     if content == "这是一条中文消息":
