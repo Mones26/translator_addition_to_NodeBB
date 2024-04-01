@@ -68,7 +68,7 @@ def test_llm_gibberish_response():
     test_text_list = ["adfasf", "lkjsadhflkjashdflkjahf", "hellos,aj;dslf", "j;lkasjfd;al", "Conichi hola hi bonjour"]
     assumed_output = [("adfasf", True), ("lkjsadhflkjashdflkjahf", True), ("hellos,aj;dslf", True), ("j;lkasjfd;al", True), 
                       ("Conichi hola hi bonjour", True), ("Hows the duudly dumdum", True)]
-    for i in range (len(test_list)):
+    for i in range (len(test_text_list)):
         assert (assumed_output[i] == translate_content(test_text_list[i]))
 
         
