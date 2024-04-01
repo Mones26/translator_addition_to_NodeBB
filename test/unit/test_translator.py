@@ -54,15 +54,25 @@ def test_chinese():
 #     assert translated_content == "This is a French message"
 
 def test_llm_normal_response():
-    test_list = ["这是一条中文消息", "Ceci est un message en français", "Esta es un mensaje en español", "Esta é uma mensagem em português", 
+    test_text_list = ["这是一条中文消息", "Ceci est un message en français", "Esta es un mensaje en español", "Esta é uma mensagem em português", 
                 "これは日本語のメッセージです", "이것은 한국어 메시지입니다", "Dies ist eine Nachricht auf Deutsch", "Questo è un messaggio in italiano", 
                 "Это сообщение на русском", "هذه رسالة باللغة العربية", "यह हिंदी में संदेश है", "นี่คือข้อความภาษาไทย", "Bu bir Türkçe mesajdır", 
                 "Đây là một tin nhắn bằng tiếng Việt", "Esto es un mensaje en catalán", "This is an English message", "Hello"]
-    for test_text in test_list:
+    for test_text in test_text_list:
         is_english, translated_content = basic_translate_content(test_text)
         LLM1_is_english, LLM2_translation = translate_content(test_text)
-        assert is_english == LLM1_is_english
-        assert translated_content == LLM2_translation
+        assert (is_english == LLM1_is_english)
+        assert (translated_content == LLM2_translation)
 
 def test_llm_gibberish_response():
-    pass
+    test_text_list = ["adfasf", "lkjsadhflkjashdflkjahf", "hellos,aj;dslf", "j;lkasjfd;al", "Conichi hola hi bonjour"]
+    assumed_output = [("adfasf", True), ("lkjsadhflkjashdflkjahf", True), ("hellos,aj;dslf", True), ("j;lkasjfd;al", True), 
+                      ("Conichi hola hi bonjour", True), ("Hows the duudly dumdum", True)]
+    for i in range (len(test_list)):
+        assert (assumed_output[i] == translate_content(test_text_list[i]))
+
+        
+
+
+
+
