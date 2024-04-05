@@ -4,7 +4,7 @@ def basic_translate_content(content: str) -> tuple[bool, str]:
     if content == "这是一条中文消息":
         return False, "This is a Chinese message"
     if content == "Ceci est un message en français":
-        return False, "This is a French message"
+        return False, "This is a message in French"
     if content == "Esta es un mensaje en español":
         return False, "This is a Spanish message"
     if content == "Esta é uma mensagem em português":
@@ -70,10 +70,6 @@ def test_llm_gibberish_response():
                       (True, "Conichi hola hi bonjour"), (True, "Hows the duudly dumdum")]
     for i in range (len(test_text_list)):
         assert (assumed_output[i] == translate_content(test_text_list[i]))
-
-
-test_llm_normal_response()
-
         
 
 
