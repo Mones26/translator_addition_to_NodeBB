@@ -71,6 +71,9 @@ def test_llm_gibberish_response():
     for i in range (len(test_text_list)):
         assert (assumed_output[i] == translate_content(test_text_list[i]))
 
+
+test_llm_normal_response();
+
         
 
 
