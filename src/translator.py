@@ -15,11 +15,11 @@ genai.configure(api_key='AIzaSyCfh7jdcD6VMJEjiG7eOttexDsbHzS3b2o')
 model = genai.GenerativeModel('gemini-pro')
 
 def get_translation(post: str) -> str:
-    response = model.generate_content("please translate this to english: " + post)
+    response = model.generate_content("Please translate this to english: " + post)
     return response.text
 
 def get_language(post: str) -> str:
-    response = model.generate_content("what language is this: " + post)
+    response = model.generate_content("What language is this? If it is gibberish, please say 'gibberish': " + post)
     return response.text
 
 def translate_content(post: str) -> tuple[bool, str]:
