@@ -19,7 +19,7 @@ def get_translation(post: str) -> str:
     return response.text
 
 def get_language(post: str) -> str:
-    response = model.generate_content("What language is this? If it is gibberish, please say 'gibberish': " + post)
+    response = model.generate_content("What language is this? If it is gibberish, please say 'Malformed': " + post)
     return response.text
 
 def translate_content(post: str) -> tuple[bool, str]:
