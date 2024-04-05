@@ -72,7 +72,7 @@ def test_llm_gibberish_response():
         assert (assumed_output[i] == translate_content(test_text_list[i]))
 
 
-test_llm_normal_response();
+test_llm_normal_response()
 
         
 

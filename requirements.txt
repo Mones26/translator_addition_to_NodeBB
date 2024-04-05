@@ -4,3 +4,5 @@ pytest==7.4.0
 ipytest==0.14.0
 mock==5.1.0
 google-cloud-aiplatform==1.46.0
+
+google-generativeai==0.4.1
