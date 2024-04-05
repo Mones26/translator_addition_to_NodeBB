@@ -28,7 +28,10 @@ def get_language(post: str) -> str:
 def translate_content(post: str) -> tuple[bool, str]:
   failure_text = "Sorry - we failed to properly parse and translate your post! Something may be wrong with our backend :/"
 
-  classified_language = get_language(post)
+  try:
+    classified_language = get_language(post)
+  except:
+    return (False, failure_text) # api failed
   # if something went wrong with classification, account for this
   error_keywords = ["understand", "didn't", "sorry"]
   for word in error_keywords:
@@ -44,7 +47,10 @@ def translate_content(post: str) -> tuple[bool, str]:
   if "impossible" in classified_language.lower():
     return (False, "Malformed")
   # otherwise, translate the sentence to english, and return
-  translated = get_translation(post)
+  try:
+    translated = get_translation(post)
+  except:
+    return (False, failure_text) # couldn't translate
 
   # if something went wrong with translation, account for this
   if not translated or not isinstance(translated, str):
